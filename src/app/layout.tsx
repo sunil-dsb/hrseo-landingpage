@@ -1,11 +1,34 @@
 import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
+import { Montserrat, Inter } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
+// Primary font - Montserrat
 const montserrat = Montserrat({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700", "800"],
   variable: "--font-montserrat",
+  display: "swap",
+});
+
+// Modern alternative font - Inter
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+// Custom local font - HRSEO
+const hrseoFont = localFont({
+  src: [
+    {
+      path: "../../public/fonts/hrseo.woff2",
+      weight: "400",
+      style: "normal",
+    },
+  ],
+  variable: "--font-hrseo",
   display: "swap",
 });
 
@@ -37,9 +60,30 @@ export const metadata: Metadata = {
   creator: "Hazlo Rentable",
   publisher: "Hazlo Rentable",
 
+  // Favicon configuration
+  icons: {
+    icon: [
+      { url: "/favicon_io/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon_io/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: [
+      { url: "/favicon_io/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    other: [
+      {
+        rel: "android-chrome-192x192",
+        url: "/favicon_io/android-chrome-192x192.png",
+      },
+      {
+        rel: "android-chrome-512x512", 
+        url: "/favicon_io/android-chrome-512x512.png",
+      },
+    ],
+  },
+  manifest: "/favicon_io/site.webmanifest",
+
   openGraph: {
     type: "website",
-    locale: "en_US",
     url: "https://hrseo.io",
     siteName: "HRSEO",
     title: "HRSEO - SEO Tool",
@@ -72,9 +116,6 @@ export const metadata: Metadata = {
 
   alternates: {
     canonical: "https://hrseo.io",
-    languages: {
-      "en-US": "https://hrseo.io/en-us",
-    },
   },
 
   verification: {
@@ -90,7 +131,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${montserrat.variable} antialiased`}>
+      <body className={`${montserrat.variable} ${inter.variable} ${hrseoFont.variable} antialiased`}>
         {children}
       </body>
     </html>

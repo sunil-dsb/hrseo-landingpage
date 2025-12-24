@@ -2,21 +2,21 @@
 
 @theme {
   /* ========================= Brand / Primary (Orange) ========================= */
-  --color-primary-DEFAULT: #F15A29;
+  --color-primary: #F15A29;
   --color-primary-hover: #D14924;
   --color-primary-active: #B63E1F;
   --color-primary-subtle: #FDE8E1;
   --color-primary-foreground: #FFFFFF;
 
   /* ========================= Secondary / Accent (Yellow) ========================= */
-  --color-secondary-DEFAULT: #FBB040;
+  --color-secondary: #FBB040;
   --color-secondary-hover: #D18E34;
   --color-secondary-active: #B8772C;
   --color-secondary-subtle: #FFF1D6;
   --color-secondary-foreground: #050E30;
 
   /* ========================= Info / Trust / Blue ========================= */
-  --color-info-DEFAULT: #20358E;
+  --color-info: #20358E;
   --color-info-hover: #1B2C77;
   --color-info-active: #000C54;
   --color-info-subtle: #E4E8F6;
@@ -42,7 +42,7 @@
   --color-background-inverted: #050E30;
 
   /* ========================= Borders ========================= */
-  --color-border-DEFAULT: #E2E2E2;
+  --color-border: #E2E2E2;
   --color-border-strong: #C4C4C4;
   --color-border-subtle: #F0F0F0;
   --color-border-inverted: #20358E;
@@ -70,10 +70,72 @@
 
   /* ========================= Font Family ========================= */
   --font-sans: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+  --font-modern: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-brand: var(--font-hrseo), var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
 }
 
 body {
   background: var(--color-background-page);
   color: var(--color-text-primary);
   font-family: var(--font-sans);
+}
+
+/* Font utilities */
+.font-sans { font-family: var(--font-sans); }
+.font-modern { font-family: var(--font-modern); }
+.font-brand { font-family: var(--font-brand); }
+
+/* Header styles */
+.header {
+  @apply sticky top-2 z-50 w-full backdrop-blur-md max-w-5xl mx-auto mt-4 rounded-md h-14;
+  background: #201d1d;
+  border: 1px solid var(--color-border);
+}
+
+.nav-link {
+  @apply font-medium text-white transition-colors px-2 rounded-sm h-full flex items-center;
+  font-family: var(--font-brand);
+}
+
+.nav-link:hover {
+  background: var(--color-neutral-700);
+}
+
+.btn {
+  @apply font-medium px-5 h-full flex items-center transition-colors;
+  font-family: var(--font-brand);
+}
+
+.btn-primary {
+  @apply text-white rounded-sm;
+  background: var(--color-primary);
+}
+
+.btn-secondary {
+  @apply text-white rounded-full;
+  background: var(--color-neutral-600);
+}
+
+.logo {
+  @apply font-extrabold text-3xl tracking-tight text-white transition-colors;
+  font-family: var(--font-sans);
+}
+
+.logo:hover {
+  color: var(--color-primary);
+}
+
+/* Animations */
+@keyframes marquee {
+  from { transform: translateX(100%); }
+  to { transform: translateX(-100%); }
+}
+
+.marquee {
+  @apply overflow-hidden whitespace-nowrap;
+}
+
+.marquee-content {
+  @apply inline-block;
+  animation: marquee 20s linear infinite;
 }
