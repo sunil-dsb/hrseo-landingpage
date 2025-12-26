@@ -1,140 +1,161 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
-
   return (
-    <footer className="w-full border-t border-border bg-background-subtle">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Brand Section */}
-          <div className="space-y-4">
-            <h2 className="text-xl font-bold text-text-primary">HRSEO</h2>
-            <p className="text-sm text-text-secondary">
-              Professional SEO tools for keyword research and modern SEO needs.
-            </p>
-          </div>
-
-          {/* Product Links */}
-          <nav aria-label="Product links">
-            <h3 className="font-semibold text-text-primary mb-4">Product</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/features" className="text-sm text-text-secondary hover:text-text-link transition-colors">
-                  Features
-                </Link>
-              </li>
-              <li>
-                <Link href="/pricing" className="text-sm text-text-secondary hover:text-text-link transition-colors">
-                  Pricing
-                </Link>
-              </li>
-              <li>
-                <Link href="/integrations" className="text-sm text-text-secondary hover:text-text-link transition-colors">
-                  Integrations
-                </Link>
-              </li>
-              <li>
-                <Link href="/changelog" className="text-sm text-text-secondary hover:text-text-link transition-colors">
-                  Changelog
-                </Link>
-              </li>
-            </ul>
-          </nav>
-
-          {/* Company Links */}
-          <nav aria-label="Company links">
-            <h3 className="font-semibold text-text-primary mb-4">Company</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/about" className="text-sm text-text-secondary hover:text-text-link transition-colors">
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link href="/blog" className="text-sm text-text-secondary hover:text-text-link transition-colors">
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="text-sm text-text-secondary hover:text-text-link transition-colors">
-                  Contact
-                </Link>
-              </li>
-              <li>
-                <Link href="/careers" className="text-sm text-text-secondary hover:text-text-link transition-colors">
-                  Careers
-                </Link>
-              </li>
-            </ul>
-          </nav>
-
-          {/* Legal Links */}
-          <nav aria-label="Legal links">
-            <h3 className="font-semibold text-text-primary mb-4">Legal</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/privacy" className="text-sm text-text-secondary hover:text-text-link transition-colors">
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link href="/terms" className="text-sm text-text-secondary hover:text-text-link transition-colors">
-                  Terms of Service
-                </Link>
-              </li>
-              <li>
-                <Link href="/cookies" className="text-sm text-text-secondary hover:text-text-link transition-colors">
-                  Cookie Policy
-                </Link>
-              </li>
-            </ul>
-          </nav>
-        </div>
-
-        {/* Bottom Section */}
-        <div className="mt-12 pt-8 border-t border-border">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-sm text-text-muted">
-              © {currentYear} HRSEO by Hazlo Rentable. All rights reserved.
-            </p>
-            
-            {/* Social Links */}
-            <div className="flex items-center space-x-6" role="list" aria-label="Social media links">
-              <a 
-                href="https://twitter.com/hrseo" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-text-muted hover:text-text-link transition-colors"
-                aria-label="Follow us on Twitter"
-              >
-                <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
-                </svg>
-              </a>
-              <a 
-                href="https://github.com/hrseo" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-text-muted hover:text-text-link transition-colors"
-                aria-label="Follow us on GitHub"
-              >
-                <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
-                </svg>
-              </a>
-              <a 
-                href="https://linkedin.com/company/hrseo" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-text-muted hover:text-text-link transition-colors"
-                aria-label="Follow us on LinkedIn"
-              >
-                <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                </svg>
-              </a>
+    <footer className="w-full bg-background">
+      {/* Main Footer Content */}
+      <div className="border-t border-border">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+            {/* Brand Section */}
+            <div className="space-y-6">
+              <div className="flex items-center gap-3">
+                <div className="relative w-8 h-8">
+                  <Image
+                    src="/logo.png"
+                    alt="HRSEO Logo"
+                    fill
+                    className="object-contain dark:hidden"
+                  />
+                  <Image
+                    src="/logo-white.png"
+                    alt="HRSEO Logo"
+                    fill
+                    className="object-contain hidden dark:block"
+                  />
+                </div>
+                <span className="text-xl font-bold text-[#F15A29]">HRSEO</span>
+              </div>
+              <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
+                Professional SEO tools for keyword research and modern SEO needs.
+                Turn information into advantage.
+              </p>
+              <div className="pt-4">
+                <p className="text-xs text-muted-foreground mb-2">CHANGE LOCATION</p>
+                <button className="text-sm text-foreground hover:text-[#F15A29] transition-colors flex items-center gap-1">
+                  Global
+                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+              </div>
             </div>
+
+            {/* Services Section */}
+            <nav aria-label="Services">
+              <h3 className="font-semibold text-foreground mb-6 text-sm tracking-wide uppercase">Services</h3>
+              <ul className="space-y-4">
+                <li>
+                  <Link href="/keyword-research" className="text-sm text-muted-foreground hover:text-[#F15A29] transition-colors">
+                    Keyword Research
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/competitor-analysis" className="text-sm text-muted-foreground hover:text-[#F15A29] transition-colors">
+                    Competitor Analysis
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/rank-tracking" className="text-sm text-muted-foreground hover:text-[#F15A29] transition-colors">
+                    Rank Tracking
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/backlink-analysis" className="text-sm text-muted-foreground hover:text-[#F15A29] transition-colors">
+                    Backlink Analysis
+                  </Link>
+                </li>
+              </ul>
+            </nav>
+
+            {/* Company Section */}
+            <nav aria-label="Company">
+              <h3 className="font-semibold text-foreground mb-6 text-sm tracking-wide uppercase">Company</h3>
+              <ul className="space-y-4">
+                <li>
+                  <Link href="/about" className="text-sm text-muted-foreground hover:text-[#F15A29] transition-colors">
+                    About
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/careers" className="text-sm text-muted-foreground hover:text-[#F15A29] transition-colors">
+                    Careers
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/impact-report" className="text-sm text-muted-foreground hover:text-[#F15A29] transition-colors">
+                    Impact Report
+                  </Link>
+                </li>
+              </ul>
+            </nav>
+
+            {/* Newsletter & Social Section */}
+            <div className="space-y-6">
+              <div>
+                <h3 className="font-semibold text-foreground mb-4 text-sm tracking-wide uppercase">
+                  Subscribe to Our Newsletter
+                </h3>
+                <div className="space-y-3">
+                  <input
+                    type="email"
+                    placeholder="Enter your email"
+                    className="w-full px-3 py-2 text-sm border border-border rounded-md bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-[#F15A29] focus:border-transparent"
+                  />
+                  <button className="w-full px-4 py-2 text-sm font-medium text-white bg-[#F15A29] rounded-md hover:bg-[#D14924] transition-colors">
+                    Subscribe
+                  </button>
+                </div>
+              </div>
+
+              <div>
+                <h3 className="font-semibold text-foreground mb-4 text-sm tracking-wide uppercase">
+                  Get in Touch with Us
+                </h3>
+                <div className="flex items-center space-x-4">
+                  <a
+                    href="https://instagram.com/hrseo"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-[#F15A29] transition-colors"
+                    aria-label="Follow us on Instagram"
+                  >
+                    <span className="text-xs font-medium">INSTAGRAM</span>
+                  </a>
+                  <a
+                    href="https://linkedin.com/company/hrseo"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-[#F15A29] transition-colors"
+                    aria-label="Follow us on LinkedIn"
+                  >
+                    <span className="text-xs font-medium">LINKEDIN</span>
+                  </a>
+                  <a
+                    href="https://tiktok.com/@hrseo"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-[#F15A29] transition-colors"
+                    aria-label="Follow us on TikTok"
+                  >
+                    <span className="text-xs font-medium">TIKTOK</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Orange Bottom Bar - Simple with Grid Lines */}
+      <div className="bg-[#F15A29] text-white relative overflow-hidden">
+        {/* Full grid lines overlay */}
+        <div className="absolute inset-0 text-white/10 bg-[size:10px_10px] [background-image:repeating-linear-gradient(315deg,currentColor_0_1px,#0000_0_50%)]"></div>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="flex items-center justify-center py-4 min-h-[70px]">
+            {/* Centered HRSEO */}
+            <span className="text-2xl font-black tracking-tight">HRSEO</span>
           </div>
         </div>
       </div>

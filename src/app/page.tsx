@@ -1,6 +1,8 @@
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
-import Hero from '@/components/sections/Hero';
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import Hero from "@/components/sections/Hero";
+import FAQ from "@/components/sections/FAQ";
+import GetStarted from "@/components/sections/GetStarted";
 
 export default function Home() {
   return (
@@ -8,7 +10,8 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        {/* Add more sections here */}
+        <FAQ />
+        <GetStarted />
       </main>
       <Footer />
     </>

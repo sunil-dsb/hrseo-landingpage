@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Montserrat, Inter } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
+import { ThemeProvider } from "@/components/providers/ThemeProvider";
 
 // Primary font - Montserrat
 const montserrat = Montserrat({
@@ -91,11 +92,11 @@ export const metadata: Metadata = {
       "Hazlo Rentable - HRSEO a SEO Tool for Keyword research with modern SEO needs",
     images: [
       {
-        url: "https://yourdomain.com/og-image-1200x630.jpg", // 1200x630px required
+        url: "/logo.png", // Use your existing logo for now
         width: 1200,
         height: 630,
-        alt: "hrseo - Feature Preview",
-        type: "image/jpeg",
+        alt: "HRSEO - SEO Tool Preview",
+        type: "image/png",
       },
     ],
   },
@@ -119,8 +120,8 @@ export const metadata: Metadata = {
   },
 
   verification: {
-    google: "HRSEO_GOOGLE_VERIFICATION_CODE",
-    yandex: "HRSEO_YANDEX_VERIFICATION_CODE",
+    // google: "your-google-verification-code",
+    // yandex: "your-yandex-verification-code",
   },
 };
 
@@ -130,9 +131,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${montserrat.variable} ${inter.variable} ${hrseoFont.variable} antialiased`}>
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem={false}
+          storageKey="hrseo-theme"
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
