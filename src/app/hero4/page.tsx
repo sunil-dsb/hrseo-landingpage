@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { ArrowRight, Sparkles } from 'lucide-react';
 
 // Three.js Morphing Liquid Sphere Background
-function MorphingSphereBackground() {
+function MorphingSphereBackground({ side }: { side: 'left' | 'right' }) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -31,7 +31,7 @@ function MorphingSphereBackground() {
           alpha: true,
           powerPreference: "high-performance"
         });
-        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setSize(window.innerWidth, window.innerHeight); // Full size animations
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
         renderer.setClearColor(0x000000, 1); // Black background
         container.appendChild(renderer.domElement);
@@ -178,8 +178,9 @@ function MorphingSphereBackground() {
         const elapsedTime = clock.getElapsedTime();
         material.uniforms.uTime.value = elapsedTime;
 
-        // Slow rotation
-        particles.rotation.y = elapsedTime * 0.1;
+        // Slow rotation - different direction for each side
+        const rotationMultiplier = side === 'left' ? 1 : -1;
+        particles.rotation.y = elapsedTime * 0.1 * rotationMultiplier;
         particles.rotation.x = Math.sin(elapsedTime * 0.2) * 0.1;
 
         // Mouse tilt
@@ -214,7 +215,7 @@ function MorphingSphereBackground() {
         material.dispose();
       };
     });
-  }, []);
+  }, [side]);
 
   return <div ref={containerRef} className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none" />;
 }
@@ -224,8 +225,13 @@ export default function Hero4() {
 
   return (
     <div ref={containerRef} className="min-h-screen bg-black overflow-hidden relative">
-      {/* Three.js Morphing Sphere Background - Right Side */}
-      <MorphingSphereBackground />
+      {/* Three.js Morphing Sphere Backgrounds - Full Size, 50% Visible Each Side */}
+      <div className="absolute -left-1/2 top-0 w-full h-full z-0">
+        <MorphingSphereBackground side="left" />
+      </div>
+      <div className="absolute -right-1/2 top-0 w-full h-full z-0">
+        <MorphingSphereBackground side="right" />
+      </div>
 
       {/* Navigation */}
       <nav className="relative z-50 flex items-center justify-between p-6 max-w-7xl mx-auto">
@@ -269,9 +275,9 @@ export default function Hero4() {
         </Link>
       </nav>
 
-      {/* Hero Section - Centered Layout */}
+      {/* Hero Section - Centered Content with 50/50 Split */}
       <section className="relative z-10 min-h-screen flex items-center justify-center px-6">
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="max-w-2xl mx-auto text-center relative z-20">
           {/* Badge */}
           <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-gradient-to-r from-orange-500/20 to-yellow-500/20 border border-orange-500/30 text-orange-300 text-xs font-medium mb-6 backdrop-blur-md shadow-lg">
             <Sparkles className="w-3 h-3 animate-pulse" />
